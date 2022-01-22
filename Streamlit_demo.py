@@ -1,5 +1,5 @@
 from email.policy import default
-from functools import cache
+
 import pandas as pd
 from sklearn import neighbors
 import streamlit as st
