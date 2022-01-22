@@ -1,6 +1,10 @@
+from email.policy import default
+from functools import cache
 import pandas as pd
+from sklearn import neighbors
 import streamlit as st
 import plotly.express as px
+import matplotlib
 
 df = pd.read_csv("listings.csv")
 
@@ -68,7 +72,7 @@ show_exp = st.checkbox("Include expensive listings")
 show_exp = " and price<200" if not show_exp else ""
 
 
-@st.cache
+@cache
 def get_availability(show_exp, neighborhood):
     return df.query(f"""neighbourhood_group==@neighborhood{show_exp}\
         and availability_365>0""").availability_365.describe(
