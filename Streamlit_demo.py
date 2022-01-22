@@ -68,7 +68,7 @@ show_exp = st.checkbox("Include expensive listings")
 show_exp = " and price<200" if not show_exp else ""
 
 
-@cache
+@st.cache
 def get_availability(show_exp, neighborhood):
     return df.query(f"""neighbourhood_group==@neighborhood{show_exp}\
         and availability_365>0""").availability_365.describe(
