@@ -1,7 +1,4 @@
-from email.policy import default
-
 import pandas as pd
-from sklearn import neighbors
 import streamlit as st
 import plotly.express as px
 
